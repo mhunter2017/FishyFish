@@ -1,0 +1,126 @@
+<html>
+	<head>
+		<title>FishTank 2.0</title>
+		<script src="http://cloud.github.com/downloads/processing-js/processing-js/processing-1.4.1.min.js"></script>
+		<script type="text/processing" data-processing-target="mycanvas">
+        //Your code goes here 
+		background(66, 138, 227); //sea
+		fill(245, 236, 201); //sand
+		noStroke();
+		rect(0,370,400,30);
+
+		//seaweed
+		stroke(74, 204, 100);
+		fill(83, 224, 127);
+		ellipse(180,355,60,20);
+		ellipse(220,330,50,15);
+		ellipse(178,294,50,10);
+		ellipse(170,280,7,25);
+		ellipse(200,380,20,180);
+
+		//right Coral
+		fill(247, 170, 223);
+		stroke(240, 105, 209);
+		ellipse(327,400,12,180);
+		ellipse(337,400,10,120);
+		ellipse(349,400,15,180);
+		ellipse(360,400,15,140);
+		ellipse(315,400,15,150);
+		ellipse(370,400,10,100);
+
+		//left Coral
+		ellipse(107,400,12,180); 
+		ellipse(117,400,10,120);
+		ellipse(129,400,15,180);
+		ellipse(140,400,15,140);
+		ellipse(95,400,15,150);
+		ellipse(82,400,10,100);
+
+		//Fishy Fish
+		//constructor
+		var centerX = random(100,300);
+		var centerY = random(100,300);
+		var bodyLength = random(50,150);
+		var bodyHeight = random(40,120);
+		var bodyColor = color(137, 224, 250);
+		var tailWidth = bodyLength/4;
+		var tailHeight = bodyHeight/2;
+		noStroke();
+	//draw fish function
+	var drawFish = function() {
+   		fill(bodyColor);
+		// body
+    	ellipse(centerX, centerY, bodyLength, bodyHeight);
+		// tail
+    	triangle(centerX-bodyLength/2, centerY, centerX-bodyLength/2-tailWidth, centerY-tailHeight, centerX-bodyLength/2-tailWidth, centerY+tailHeight);
+		// eye
+    	fill(33, 33, 33);
+    	ellipse(centerX+bodyLength/4, centerY, bodyHeight/5, bodyHeight/5); 
+		};
+
+
+	//Fishy Eel
+	var centerE = random(100,300);
+	var centerR = random(100,400);
+
+	var drawEel = function() {
+	   //body color
+		fill(235, 192, 127);
+		//body
+		rect(centerE, centerR, 150, 20, 15); 
+		//eye color black
+		fill(0, 0, 0); 
+		ellipse(centerE+17,centerR+6, 5, 5);
+		//mouth
+		rect(centerE,centerR+10,11,3); 
+		};
+
+
+	//Fishy Crab
+	var drawCrab = function() {
+		fill(255, 0, 0);
+		ellipse(100,360,80,60);
+		//legs
+		rotate(34);
+		rect(215,250,40,7,3);
+		rect(215,250,7,45,3);
+		rect(225,268,40,7,3);
+		rect(225,268,7,45,3);
+		rect(290,170,40,7,3);
+		rect(290,170,7,45,3);
+		rect(315,185,40,7,3);
+		rect(311,185,7,45,3);
+
+		//eyes (rotate to revert back to balance)
+		rotate(-34); 
+		fill(0, 0, 0);
+		//left eye
+		ellipse(80,350,10,10);
+		//right eye
+		ellipse(110,350,10,10);
+		//mouth
+		ellipse(100,370,20,4);
+		};
+
+		drawFish();
+		drawEel();
+		drawCrab();
+
+        //since these are variables we don't want to ever change in the code, we capitalize them 
+        var WINDOW_WIDTH = 400;
+        var WINDOW_HEIGHT = 400; 
+        var GREY = 204;
+        //This function only runs once at the start of the program
+        void setup() {
+          size(WINDOW_WIDTH, WINDOW_HEIGHT); //sets the size of the window
+        
+          frameRate(30); //how many times the draw function is called per second
+        
+        }
+
+        	 </script> 
+    	</head>
+    	<body>
+		<canvas id="mycanvas"></canvas>
+	</body>
+</html>
