@@ -70,11 +70,13 @@
 		Fish randomFish = new Fish(100,100);
 
 
-	//Fishy Eel
-	Class Eel {
-		var eelCenterX = random(100,300);
-		var eelCenterY = random(100,400);
-
+		//Fishy Eel
+		Class Eel {
+		void drawEel() {
+			var eelCenterX = random(100,300);
+			var eelCenterY = random(100,400);
+		};
+		
 		var drawEel = function() {
 		   //body color
 			fill(235, 192, 127);
@@ -86,39 +88,40 @@
 			//mouth
 			rect(eelCenterX, eelCenterY + 10, 11, 3); 
 			};
-	};
+		};
 	
 
 
-	//Fishy Crab
-	var drawCrab = function() {
-		fill(255, 0, 0);
-		ellipse(100,360,80,60);
-		//legs
-		rotate(34);
-		rect(215,250,40,7,3);
-		rect(215,250,7,45,3);
-		rect(225,268,40,7,3);
-		rect(225,268,7,45,3);
-		rect(290,170,40,7,3);
-		rect(290,170,7,45,3);
-		rect(315,185,40,7,3);
-		rect(311,185,7,45,3);
+		//Fishy Crab
 
-		//eyes (rotate to revert back to balance)
-		rotate(-34); 
-		fill(0, 0, 0);
-		//left eye
-		ellipse(80,350,10,10);
-		//right eye
-		ellipse(110,350,10,10);
-		//mouth
-		ellipse(100,370,20,4);
-		};
+		var drawCrab = function() {
+			fill(255, 0, 0);
+			ellipse(100,360,80,60);
+			//legs
+			rotate(34);
+			rect(215,250,40,7,3);
+			rect(215,250,7,45,3);
+			rect(225,268,40,7,3);
+			rect(225,268,7,45,3);
+			rect(290,170,40,7,3);
+			rect(290,170,7,45,3);
+			rect(315,185,40,7,3);
+			rect(311,185,7,45,3);
+
+			//eyes (rotate to revert back to balance)
+			rotate(-34); 
+			fill(0, 0, 0);
+			//left eye
+			ellipse(80,350,10,10);
+			//right eye
+			ellipse(110,350,10,10);
+			//mouth
+			ellipse(100,370,20,4);
+			};
 
 
-        //since these are variables we don't want to ever change in the code, we capitalize them 
-        var WINDOW_WIDTH = 400;
+        	//since these are variables we don't want to ever change in the code, we capitalize them 
+       	var WINDOW_WIDTH = 400;
         var WINDOW_HEIGHT = 400; 
         //This function only runs once at the start of the program
         void setup() {
