@@ -1,0 +1,53 @@
+<html>
+	<head>
+		<title>FishTank 2.0</title>
+		<script src="http://cloud.github.com/downloads/processing-js/processing-js/processing-1.4.1.min.js"></script>
+		<script type="text/processing" data-processing-target="mycanvas">
+        //Your code goes here
+        //since these are variables we don't want to ever change in the code, we capitalize them 
+        var WINDOW_WIDTH = 400;
+        var WINDOW_HEIGHT = 400; 
+        var GREY = 204;
+        //This function only runs once at the start of the program
+        void setup() {
+          size(WINDOW_WIDTH, WINDOW_HEIGHT); //sets the size of the window
+          frameRate(30); //how many times the draw function is called per second
+        
+        };
+        //Fishy Fish
+        Class Fish {
+          var bodyHeight, bodyLength, tailHeight, tailWidth, bodyColor;
+          
+          Fish(var bh, var bl){
+            bodyLength = bl;
+            bodyHeight = bh;
+            bodyColor = color(137, 224, 250);
+            tailWidth = bodyLength/4;
+            tailHeight = bodyHeight/2;
+          };
+          void drawFish() {
+            var centerX = random(100,300);
+            var centerY = random(100,300);
+            var bodyLength = random(50,150);
+            var bodyHeight = random(40,120);
+            noStroke();
+          };
+          var drawFish = function() {
+            fill(bodyColor);
+            // body
+              ellipse(centerX, centerY, bodyLength, bodyHeight);
+            // tail
+              triangle(centerX-bodyLength/2, centerY, centerX-bodyLength/2-tailWidth, centerY-tailHeight, centerX-bodyLength/2-tailWidth, centerY+tailHeight);
+            // eye
+              fill(33, 33, 33);
+              ellipse(centerX+bodyLength/4, centerY, bodyHeight/5, bodyHeight/5); 
+        };
+    };
+
+        </script> 
+    </head>
+    <body>
+		<canvas id="mycanvas"></canvas>
+	</body>
+</html>
+    

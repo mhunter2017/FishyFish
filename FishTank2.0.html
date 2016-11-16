@@ -39,82 +39,55 @@
 		//Fishy Fish
 		//constructor
 		Class Fish {
-			//attributes
-				var bodyHeight, bodyLength, tailHeight, tailWidth, bodyColor;
-			//constructor
-				Fish(var bh, var bl){
-					bodyLength = bl;
-					bodyHeight = bh;
-					bodyColor = color(137, 224, 250);
-					tailWidth = bodyLength/4;
-					tailHeight = bodyHeight/2;
-				}
-				void drawFish() {
-					background(66, 138, 227); //sea
-					fill(245, 236, 201); //sand
-					noStroke();
-					rect(0,370,400,30);
-					//seaweed
-					stroke(74, 204, 100);
-					fill(83, 224, 127);
-					ellipse(180,355,60,20);
-					ellipse(220,330,50,15);
-					ellipse(178,294,50,10);
-					ellipse(170,280,7,25);
-					ellipse(200,380,20,180);
-					//right Coral
-					fill(247, 170, 223);
-					stroke(240, 105, 209);
-					ellipse(327,400,12,180);
-					ellipse(337,400,10,120);
-					ellipse(349,400,15,180);
-					ellipse(360,400,15,140);
-					ellipse(315,400,15,150);
-					ellipse(370,400,10,100);
-					//left Coral
-					ellipse(107,400,12,180); 
-					ellipse(117,400,10,120);
-					ellipse(129,400,15,180);
-					ellipse(140,400,15,140);
-					ellipse(95,400,15,150);
-					ellipse(82,400,10,100);
+          var bodyHeight, bodyLength, tailHeight, tailWidth, bodyColor;
+          
+          Fish(var bh, var bl){
+            bodyLength = bl;
+            bodyHeight = bh;
+            bodyColor = color(137, 224, 250);
+            tailWidth = bodyLength/4;
+            tailHeight = bodyHeight/2;
+          };
+          void drawFish() {
+            var centerX = random(100,300);
+            var centerY = random(100,300);
+            var bodyLength = random(50,150);
+            var bodyHeight = random(40,120);
+            noStroke();
+          };
+          var drawFish = function() {
+            fill(bodyColor);
+            // body
+              ellipse(centerX, centerY, bodyLength, bodyHeight);
+            // tail
+              triangle(centerX-bodyLength/2, centerY, centerX-bodyLength/2-tailWidth, centerY-tailHeight, centerX-bodyLength/2-tailWidth, centerY+tailHeight);
+            // eye
+              fill(33, 33, 33);
+              ellipse(centerX+bodyLength/4, centerY, bodyHeight/5, bodyHeight/5); 
+       		 };
+   		 };
 
-					var centerX = random(100,300);
-					var centerY = random(100,300);
-					var bodyLength = random(50,150);
-					var bodyHeight = random(40,120);
-					noStroke();
-					//draw fish function
-					var drawFish = function() {
-						fill(bodyColor);
-						// body
-    					ellipse(centerX, centerY, bodyLength, bodyHeight);
-						// tail
-    					triangle(centerX-bodyLength/2, centerY, centerX-bodyLength/2-tailWidth, centerY-tailHeight, centerX-bodyLength/2-tailWidth, centerY+tailHeight);
-						// eye
-    					fill(33, 33, 33);
-    					ellipse(centerX+bodyLength/4, centerY, bodyHeight/5, bodyHeight/5); 
-				}
-		};
-
-		Fish randomFish = new Fish(200,100);
+		Fish randomFish = new Fish(100,100);
 
 
 	//Fishy Eel
-	var centerE = random(100,300);
-	var centerR = random(100,400);
+	Class Eel {
+		var eelCenterX = random(100,300);
+		var eelCenterY = random(100,400);
 
-	var drawEel = function() {
-	   //body color
-		fill(235, 192, 127);
-		//body
-		rect(centerE, centerR, 150, 20, 15); 
-		//eye color black
-		fill(0, 0, 0); 
-		ellipse(centerE+17,centerR+6, 5, 5);
-		//mouth
-		rect(centerE,centerR+10,11,3); 
-		};
+		var drawEel = function() {
+		   //body color
+			fill(235, 192, 127);
+			//body
+			rect(eelCenterX, eelCenterY, 150, 20, 15); 
+			//eye color black
+			fill(0, 0, 0); 
+			ellipse(eelCenterX + 17, eelCenterY + 6, 5, 5);
+			//mouth
+			rect(eelCenterX, eelCenterY + 10, 11, 3); 
+			};
+	};
+	
 
 
 	//Fishy Crab
@@ -147,14 +120,13 @@
         //since these are variables we don't want to ever change in the code, we capitalize them 
         var WINDOW_WIDTH = 400;
         var WINDOW_HEIGHT = 400; 
-        var GREY = 204;
         //This function only runs once at the start of the program
         void setup() {
           size(WINDOW_WIDTH, WINDOW_HEIGHT); //sets the size of the window
         
           frameRate(30); //how many times the draw function is called per second
         
-        }
+        };
 
         	 </script> 
     	</head>
